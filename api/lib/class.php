@@ -485,8 +485,6 @@ class Api
 	{
 		$_link = $this->_path."/export.csv";
 		$_sections = $this->getSectionLineList();
-#		print_r($_sections);
-		echo $this->_doc_root.$_link;
 		$_f = fopen($this->_doc_root.$_link,"w+");
 		fwrite($_f,"NAME;AVAILABLE;PRICE;MANUFACTURE;SECTION\n");
 		$_res = $this->QueryInternal("SELECT E.*,ES.SECTION as SECTION, M.NAME as MANUFACTURE FROM elem_sect as ES LEFT JOIN element as E ON E.ID = ES.ELEMENT LEFT JOIN manufacture as M ON E.MANUFACTURE=M.ID");
